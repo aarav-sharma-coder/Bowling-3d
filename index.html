@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bowling</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>   
+    <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    
+    <script src="./ball.js"></script>
+  </head>
+  <body>
+    <a-scene id="scene" physics="friction:0.2">
+    
+      <!--Assets-->
+      <a-assets>        
+        <a-asset-item
+          id="pin"
+          src="./assets/pin/scene.gltf"
+        ></a-asset-item>
+        <img  id="texture" src="./assets/t.png">
+        
+      </a-assets>
+      
+     
+      <a-sky
+        geometry="primitive: sphere;"
+        material="shader: gradient; bottomColor: #00009e; topColor:-10 200 227;offset: 0.0001;"
+        radius="100"
+        theta-length="180"
+        side="double"
+       
+      ></a-sky>
+
+      <!--Camera and Cursor-->
+      <a-entity
+        id="camera"
+        camera
+        position="0 1.5 0.9"
+        wasd-controls
+        look-controls="pointerLockEnabled: false"        
+      >
+        
+        <a-cursor></a-cursor>        
+      </a-entity>
+
+      <!--Ball-->
+      <a-entity ball></a-entity>
+
+      <!--Bowling Arena-->
+      <a-plane
+        id="ground"
+        repeat="5 5"
+        position="0 1 -6"
+        rotation="-90 0 0"
+        height="13"
+        width="5"
+        src="#texture"
+        static-body
+        visible="true"
+      >
+      </a-plane>
+      <a-plane
+        id="plane1"
+        repeat="5 5"
+        position="-3 1 -6"
+        rotation="-90 0 0"
+        height="13"
+        width="1"
+        color="black"
+        static-body
+        visible="true"
+      >
+      </a-plane>
+      <a-plane
+      id="plane2"
+      repeat="5 5"
+      position="3 1 -6"
+      rotation="-90 0 0"
+      height="13"
+      width="1"
+      color="black"
+      static-body
+      visible="true"
+    >
+    </a-plane>
+    <a-plane
+      id="plane3"
+      repeat="5 5"
+      position="0 1 1.5"
+      rotation="-90 0 0"
+      height="2"
+      width="7"
+      color="black"
+      static-body
+      visible="true"
+    >
+    </a-plane>
+    <a-plane
+      id="plane4"
+      repeat="5 5"
+      position="0 2 -12"
+      rotation="0 0 0"
+      height="2"
+      width="7"
+      color="black"
+      static-body
+      visible="true"
+    >
+    </a-plane>
+    
+    <a-plane
+      id="plane5"
+      repeat="5 5"
+      position="0 4.5 -12"
+      rotation="0 0 0"
+      height="3"
+      width="7"
+      color="yellow"
+      static-body
+      visible="true"
+    ></a-plane>
+   
+    <a-entity text="value: SCORE:0; width:20; color:red" position="8 4 -11"></a-entity>
+      <!--Pins-->
+      <a-entity position="-2 1 -10" gltf-model="#pin" scale = "0.7 0.7 0.7" ></a-entity>
+
+      <a-entity position="0 1 -10" gltf-model="#pin" scale = "0.7 0.7 0.7"></a-entity>
+
+      <a-entity position="2 1 -10"  gltf-model="#pin" scale = "0.7 0.7 0.7"></a-entity>
+
+      <a-entity position="-1 1 -10"  gltf-model="#pin" scale = "0.7 0.7 0.7"></a-entity>
+
+      <a-entity position="1 1 -10"  gltf-model="#pin" scale = "0.7 0.7 0.7"></a-entity>
+
+      <a-entity position="0.5 1 -9"  gltf-model="#pin" scale = "0.7 0.7 0.7"></a-entity>
+
+      <a-entity position="1.5 1 -9"  gltf-model="#pin" scale = "0.7 0.7 0.7"></a-entity>
+
+      <a-entity position="-0.5 1 -9"  gltf-model="#pin" scale = "0.7 0.7 0.7"></a-entity>
+
+      <a-entity position="-1.5 1 -9"  gltf-model="#pin" scale = "0.7 0.7 0.7"></a-entity>
+    </a-scene>
+  </body>
+</html>
